@@ -29,7 +29,7 @@ public class FizzBuzzTest extends TestifierTest{
         HashMap<String, ArrayList<Integer>> result = null;
         try {
             result = (HashMap<String, ArrayList<Integer>>) Invoker.invokeStatic(FizzBuzz.class, "asMap", 30);
-        } catch (CannotFindMethodException | CannotAccessMethodException | CannotInvokeMethodException e) {
+        } catch (Throwable e) {
             fail(e.getMessage());
         }
 

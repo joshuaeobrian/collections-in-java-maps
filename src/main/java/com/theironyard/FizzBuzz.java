@@ -1,5 +1,9 @@
 package com.theironyard;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
 /**
  * For this exercise you will be making a class with one static method that is a
  * variation on the classic FizzBuzz exercises. Follow the instructions below.
@@ -39,4 +43,49 @@ public class FizzBuzz {
      * @return A HashMap of Strings mapped to an Array of Integers containing keys and values for fizz, buzz, and fizzbuzz
      */
 
+    // Making new Hashmap method
+	public static HashMap<String, ArrayList<Integer>> asMap(int max){
+		// making hashmap that holds Strings for keys and ArrayList of integers
+		HashMap<String, ArrayList<Integer>> fizzBuzzMap = new HashMap<String, ArrayList<Integer>>();
+
+		//makking arraylist of integers for fizz
+		ArrayList<Integer> fizz = new ArrayList<>();
+		//making arrayList of integers for buzz
+		ArrayList<Integer> buzz = new ArrayList<>();
+		//making arrayList of integers for fizzbuzz
+		ArrayList<Integer> fizzbuzz = new ArrayList<>();
+		for(int index = 1; index <= max; index++){
+			// if number has a remainder of 0 for 3 and 5
+			if((index % 3) == 0 && (index %5) == 0 ){
+				//add to fizzbuzz ArrayList
+				fizzbuzz.add(index);
+
+			}
+			//// else if number has a remainder of 0 for 3
+			else if((index % 3) == 0){
+				//add to fizz ArrayList
+				fizz.add(index);
+
+			}
+			//// else if number has a remainder of 0 for 5
+			else if((index %5) ==0 ){
+				//add to buzz ArrayList
+				buzz.add(index);
+			}
+			// do nothing
+			else{
+
+			}
+		}
+
+		//adds ArrayList fizz to fizzBuzzMap with the key of "fizz"
+		fizzBuzzMap.put("fizz",fizz);
+		//adds ArrayList buzz to fizzBuzzMap with the key of "buzz"
+		fizzBuzzMap.put("buzz",buzz);
+		//adds ArrayList fizzbuzz to fizzBuzzMap with the key of "fizzbuzz"
+		fizzBuzzMap.put("fizzbuzz",fizzbuzz);
+
+		//returning hashmap
+		return fizzBuzzMap;
+	}
 }
